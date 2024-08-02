@@ -1,75 +1,212 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #CBC3E3; /* Purple background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white; /* White text color */
+        }
 
-            h1 {
-                color: #333;
-                margin-bottom: 20px; /* Add some space below the heading */
-            }
+        .content {
+            background-color: #fff;
+            color: #333; /* Dark text color */
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
 
-            form {
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 300px;
-            }
+        .content h1, .content h2, .content h3, .content p {
+            margin: 10px 0;
+        }
 
-            form p {
-                margin-bottom: 15px;
-            }
+        .content h1 {
+            color: #6a0dad; /* Purple heading color */
+        }
 
-            form label {
-                display: block;
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
+        .form-header img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px; /* Add some space below the image */
+        }
 
-            form input, form textarea {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
+        form {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: left; /* Align content to the left */
+        }
 
-            button {
-                background-color: #4CAF50;
-                color: white;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-                width: 100%; /* Make the button full width */
-            }
+        form p {
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-            button:hover {
-                background-color: #45a049;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Contact</h1>
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
 
-        <form method="post" action=".">
-            {% csrf_token %}
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
 
-            {{ form.as_p }}
+        form input[type="file"] {
+            padding: 3px;
+        }
 
-            <button>Submit</button>
-        </form>
-    </body>
+        form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background-color: #800080; /* Purple color */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #9932cc; /* Light purple on hover */
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            color: #333;
+            text-align: left; /* Align contact info to the left */
+        }
+
+        .contact-info h2, .contact-info h3 {
+            margin: 10px 0;
+            color: #800080; /* Purple color */
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        /* Additional Styles for Effects */
+        form input, form textarea, form button {
+            transition: box-shadow 0.3s ease;
+        }
+
+        form input:focus, form textarea:focus, form button:focus {
+            box-shadow: 0 0 10px rgba(128, 0, 128, 0.5); /* Purple glow on focus */
+        }
+
+        form input:hover, form textarea:hover {
+            box-shadow: 0 0 5px rgba(128, 0, 128, 0.3); /* Subtle purple glow on hover */
+        }
+
+        /* Styling for the form title and subtitle */
+        .form-title {
+            color: #800080; /* Purple color */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            color: #9932cc; /* Light purple color */
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img src="https://img.freepik.com/free-photo/people-festival_1160-736.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid" alt="Event Image">
+        
+        <br/><br/>
+        <h1>Tech Pati (Tech Quiz) Event Registration</h1>
+        <p>Event Name: Tech Pati</p>
+        <p>Event Tagline: Million Dollar TechQuiz</p>
+
+        <h2>Rules And Regulations</h2>
+        <p>Registration Fees: 50 /- Per Member</p>
+        <p>Team Size: 3</p>
+        <p>Team Per College: 2</p>
+        <p>The competition will comprise of three rounds. Detailed information about each round will be provided on the event day.</p>
+        <p>The use of electronic devices, including mobile phones, tablets, or any reference materials, is strictly prohibited during the competition.</p>
+        <p>Replacement of any participant of a team is not allowed after registration.</p>
+        <p>All participants are expected to maintain decorum and professionalism throughout the event. Any form of misbehavior will not be tolerated, and teams engaging in such behavior may face strict disqualification.</p>
+        <p>The decisions made by the organizing committee are final and binding.</p>
+    </div>
+
+    <form method="post" action="your-server-endpoint" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        
+            
+        <label for="college_name">College/University Name *</label>
+        <input type="text" id="college_name" name="college_name" placeholder="Eg: Dr. BMN College Of Home Science" required>
+
+        <label for="college_location">College/University Location *</label>
+        <input type="text" id="college_location" name="college_location" placeholder="Eg: Matunga" required>
+
+        <label for="cl_name">CL Name *</label>
+        <input type="text" id="cl_name" name="cl_name" placeholder="Eg: Ms Kainat Siddiqui" required>
+
+        <label for="cl_contact">Contact No. of CL *</label>
+        <input type="tel" id="cl_contact" name="cl_contact" required>
+
+        <label for="team_leader_name">Team Leader's Name *</label>
+        <input type="text" id="team_leader_name" name="team_leader_name" placeholder="Title | First Name | Last Name (eg. Ms. Kainat Siddiqui)" required>
+
+        <label for="team_leader_contact">Team Leader's Contact No *</label>
+        <input type="tel" id="team_leader_contact" name="team_leader_contact" required>
+
+        <label for="team_leader_email">Team Leader's Email Id *</label>
+        <input type="email" id="team_leader_email" name="team_leader_email" required>
+
+        <label for="team_members">Full Name of Team Members *</label>
+        <textarea id="team_members" name="team_members" placeholder="Eg: Ms Kainat Siddiqui (Team Leader)\nMs Palakh Koyalkar\nMs Nisha Raiyani" required></textarea>
+
+        <label for="fee_receipt">Upload Fee Receipt / College ID of the Team Leader *</label>
+        <input type="file" id="fee_receipt" name="fee_receipt" required>
+
+        <label for="payment_receipt">Upload Payment Receipt *</label>
+        <input type="file" id="payment_receipt" name="payment_receipt" required>
+
+        <div class="contact-info">
+            <h2>Event In-charges</h2>
+            <p>Nisha Raiyani - 84080 39782</p>
+            <p>Meenakshi U - 77381 98132</p>
+
+            <h2>Overall In-charges</h2>
+            <p>Kainat Siddiqui - 97246 86642</p>
+            <p>Palakh Koyalkar - 98190 21331</p>
+
+            <h3>Thank you! All The Best 🌟</h3>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
 </html>
